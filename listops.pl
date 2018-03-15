@@ -2,11 +2,11 @@ mymember(X, [X|_]).
 mymember(X, [_|T]) :-
   mymember(X, T).
 
-first_element([X], X).
+first_element(X, [X|_]).
 
-last_element([X], X).
-last_element([_|T], X) :-
-  last_element(T, X).
+last_element(X, [X]).
+last_element(X, [_|T]) :-
+  last_element(X, T).
 
 two_adjacent_elements(X,Y, [X,Y|_]).
 two_adjacent_elements(X,Y, [_|T]) :-
