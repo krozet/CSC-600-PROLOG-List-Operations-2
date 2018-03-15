@@ -27,6 +27,18 @@ mydelete(X, [H|T], [H|T1]) :-
 myinsert(X, Y, XY) :-
   mydelete(X, XY, Y).
 
+mylength([], 0).
+mylength([_|T], L) :-
+  mylength(T, L1), L is L1 + 1.
+
+myreverse([], []).
+myreverse([H|T], Rev) :-
+  myreverse(T, RT), myappend(RT, [H], Rev).
+
+check_palindrome([], []).
+check_palindrome([H|T], P) :-
+  mydelete(H,P,P1), check_palindrome(T, P1).
+
 display_list([]) :- nl.
 display_list([H|T]) :-
   write(H), tab(1),
